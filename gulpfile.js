@@ -16,7 +16,7 @@ exports.default = function () {
   watch("./src/sass/**/*.scss", sass2css);
   //   watch(nodemon);
   nodemon({
-    script: "app.js",
+    script: "node ./bin/www",
     ext: "js html",
     env: { NODE_ENV: "development" },
   });

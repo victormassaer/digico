@@ -1,9 +1,13 @@
 $blue: rgb(0, 153, 255);
-$lightgray: lightgray;
+$cloudgray: lightgray;
+$thundergray: rgb(128, 127, 127);
 
+
+//style van login pagina
 body{
     box-sizing: border-box;
     font-family: sans-serif;
+    margin: 0;
 }
 
 .logo{
@@ -35,7 +39,7 @@ body{
 
 .btn--white{
     color: black;
-    background-color: $lightgray;
+    background-color: $cloudgray;
 }
 
 .start{
@@ -46,6 +50,54 @@ body{
     padding-right: 5em;
 }
 
+
+//style van signin form
+
 .signin{
     margin-bottom: 1em;
+}
+
+.header--signin{
+    text-align: center;
+    background-color: $blue;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+
+.header--signin .title{
+    margin: 0;
+    color: white;
+    padding: 4em;
+}
+
+.form--signin{
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+}
+
+.form--signin .input{
+    margin-bottom: 1em;
+}
+
+.form--signin .btn{
+    border: none;
+}
+
+.input{
+    border: none;
+    background-color: $cloudgray;
+    padding: 1em 0.5em;
+    border-radius: 0.8em;
+}
+
+.link{
+    text-align: center;
+}
+
+.link a{
+    text-decoration: none;
+    color: $thundergray;
+    font-size: 1.5em;
+    font-weight: bold;
 }

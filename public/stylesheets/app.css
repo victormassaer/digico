@@ -1,6 +1,7 @@
 body {
   box-sizing: border-box;
   font-family: sans-serif;
+  margin: 0;
 }
 
 .logo {
@@ -45,4 +46,49 @@ body {
 
 .signin {
   margin-bottom: 1em;
+}
+
+.header--signin {
+  text-align: center;
+  background-color: #0099ff;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+.header--signin .title {
+  margin: 0;
+  color: white;
+  padding: 4em;
+}
+
+.form--signin {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+
+.form--signin .input {
+  margin-bottom: 1em;
+}
+
+.form--signin .btn {
+  border: none;
+}
+
+.input {
+  border: none;
+  background-color: lightgray;
+  padding: 1em 0.5em;
+  border-radius: 0.8em;
+}
+
+.link {
+  text-align: center;
+}
+
+.link a {
+  text-decoration: none;
+  color: #807f7f;
+  font-size: 1.5em;
+  font-weight: bold;
 }

@@ -1,3 +1,48 @@
+.btn {
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 0.5em 3em;
+  background-color: #0099ff;
+  border-radius: 0.4em;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #006cb4;
+}
+
+.btn--white {
+  color: black;
+  background-color: lightgray;
+}
+
+.btn--white:hover {
+  background-color: #807f7f;
+}
+
+.input {
+  border: none;
+  background-color: lightgray;
+  padding: 1em 0.5em;
+  border-radius: 0.8em;
+}
+
+.link {
+  text-align: center;
+}
+
+.link a {
+  text-decoration: none;
+  color: #807f7f;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.link a:hover {
+  color: black;
+}
+
 body {
   box-sizing: border-box;
   font-family: sans-serif;
@@ -19,21 +64,6 @@ body {
 
 .logo .bold {
   font-weight: bold;
-}
-
-.btn {
-  text-decoration: none;
-  font-size: 1.5em;
-  font-weight: bold;
-  padding: 0.5em 3em;
-  background-color: #0099ff;
-  border-radius: 0.4em;
-  color: white;
-}
-
-.btn--white {
-  color: black;
-  background-color: lightgray;
 }
 
 .start {
@@ -75,20 +105,28 @@ body {
   border: none;
 }
 
-.input {
-  border: none;
-  background-color: lightgray;
-  padding: 1em 0.5em;
-  border-radius: 0.8em;
-}
-
-.link {
+.header--signup {
   text-align: center;
+  background-color: #0099ff;
+  padding: 2em;
+  border-bottom-right-radius: 1em;
+  border-bottom-left-radius: 1em;
 }
 
-.link a {
-  text-decoration: none;
-  color: #807f7f;
-  font-size: 1.5em;
-  font-weight: bold;
+.header--signup h1 {
+  color: white;
+}
+
+.form--signup {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+
+.form--signup .input {
+  margin-bottom: 1em;
+}
+
+.form--signup .btn {
+  border: none;
 }

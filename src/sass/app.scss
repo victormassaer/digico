@@ -1,7 +1,55 @@
 $blue: rgb(0, 153, 255);
-$cloudgray: lightgray;
-$thundergray: rgb(128, 127, 127);
+$hoverblue: rgb(0, 108, 180);
+$cloudgrey: lightgray;
+$thundergrey: rgb(128, 127, 127);
+$inputradius: 0.8em;
+$headerradius: 1em;
 
+//algemene style
+.btn{
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 0.5em 3em;
+    background-color: $blue;
+    border-radius: 0.4em;
+    color: white;
+}
+
+.btn:hover{
+    background-color: $hoverblue;
+}
+
+.btn--white{
+    color: black;
+    background-color: $cloudgrey;
+}
+
+.btn--white:hover{
+    background-color: $thundergrey;
+}
+
+.input{
+    border: none;
+    background-color: $cloudgrey;
+    padding: 1em 0.5em;
+    border-radius: $inputradius;
+}
+
+.link{
+    text-align: center;
+}
+
+.link a{
+    text-decoration: none;
+    color: $thundergrey;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.link a:hover{
+    color: black;
+}
 
 //style van login pagina
 body{
@@ -27,20 +75,6 @@ body{
     font-weight: bold;
 }
 
-.btn{
-    text-decoration: none;
-    font-size: 1.5em;
-    font-weight: bold;
-    padding: 0.5em 3em;
-    background-color: $blue;
-    border-radius: 0.4em;
-    color: white;
-}
-
-.btn--white{
-    color: black;
-    background-color: $cloudgray;
-}
 
 .start{
     text-align: center;
@@ -52,7 +86,6 @@ body{
 
 
 //style van signin form
-
 .signin{
     margin-bottom: 1em;
 }
@@ -60,8 +93,8 @@ body{
 .header--signin{
     text-align: center;
     background-color: $blue;
-    border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: $headerradius;
+    border-bottom-right-radius: $headerradius;
 }
 
 .header--signin .title{
@@ -84,20 +117,33 @@ body{
     border: none;
 }
 
-.input{
-    border: none;
-    background-color: $cloudgray;
-    padding: 1em 0.5em;
-    border-radius: 0.8em;
-}
 
-.link{
+
+//style van de signup page
+.header--signup{
     text-align: center;
+    background-color: $blue;
+    padding: 2em;
+    border-bottom-right-radius: $headerradius;
+    border-bottom-left-radius: $headerradius;
 }
 
-.link a{
-    text-decoration: none;
-    color: $thundergray;
-    font-size: 1.5em;
-    font-weight: bold;
+.header--signup h1{
+    color: white;
 }
+
+.form--signup{
+    display: flex;
+    flex-direction: column; 
+    padding: 2em;
+}
+
+.form--signup .input{
+    margin-bottom: 1em;
+}
+
+.form--signup .btn{
+    border: none;
+}
+
+

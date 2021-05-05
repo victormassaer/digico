@@ -3,7 +3,12 @@ const { get } = require("../../../routes/api/v1/transfers");
 
 function addTransfer(req, res) {
   let transfer = new Transfer();
-  transfer.name = req.body.name;
+  transfer.senderId = req.body.senderId;
+  transfer.receiverId = req.body.receiverId;
+  transfer.reason = req.body.reason;
+  transfer.message = req.body.message;
+  transfer.amount = req.body.amount;
+  transfer.created = Date.now();
   transfer.save((err, doc) => {
     if (err) {
       res.json({

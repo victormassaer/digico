@@ -2,6 +2,7 @@ $blue: rgb(0, 153, 255);
 $hoverblue: rgb(0, 108, 180);
 $cloudgrey: lightgray;
 $thundergrey: rgb(128, 127, 127);
+$almostgrey: rgb(243, 243, 243); 
 $inputradius: 0.8em;
 $headerradius: 1em;
 
@@ -147,3 +148,92 @@ body{
 }
 
 
+//style van de feed
+
+.header--feed{
+    background-color: $almostgrey;
+    display: flex;
+    flex-direction: row;
+}
+
+.header--feed .coins{
+    margin-left: auto;
+    margin-right: 1em;
+    background-color: $blue;
+    border-radius: $inputradius;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.header--feed .coins h3{
+    color: white;
+    margin: 0.5em 1em;
+}
+
+.balance{
+    padding-left: 2em;
+}
+
+.balance h4{
+    color: $thundergrey;
+    margin-bottom: 0.5em;
+}
+
+.balance h1{
+    font-size: 2em;
+    margin-top: 0;
+}
+
+.transactions{
+    background-color: $cloudgrey;
+    margin-left: 1em;
+    margin-right: 1em;
+    border-radius: $headerradius;
+    padding: 1em;
+}
+
+.transactions h3{
+    margin-top: 0;
+    color: $thundergrey;
+}
+
+.transaction{
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 40% 60%;
+}
+
+.transaction img{
+    grid-column: 1/2;
+    grid-row: 1/3;
+
+    justify-self: center;
+    align-self: center;
+}
+
+.transaction .user{
+    grid-column: 2/3;
+    grid-row: 1/2;
+
+    margin: 0;
+}
+
+.transaction .description{
+    grid-column: 2/3;
+    grid-row: 2/3;
+
+    margin: 0;
+}
+
+.transaction .amount{
+    grid-column: 3/4;
+    grid-row: 1/3;
+
+    justify-self: center;
+    align-self: center;
+    color: black;
+}
+
+.user .name{
+    font-weight: bold;
+}

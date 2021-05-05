@@ -1,3 +1,48 @@
 body {
-  background-color: green;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.logo {
+  text-align: center;
+  margin-top: 5em;
+}
+
+.logo img {
+  width: 30%;
+}
+
+.logo h1 {
+  font-weight: bold;
+}
+
+.logo .bold {
+  font-weight: bold;
+}
+
+.btn {
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 0.5em 3em;
+  background-color: #0099ff;
+  border-radius: 0.4em;
+  color: white;
+}
+
+.btn--white {
+  color: black;
+  background-color: lightgray;
+}
+
+.start {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-left: 5em;
+  padding-right: 5em;
+}
+
+.signin {
+  margin-bottom: 1em;
 }

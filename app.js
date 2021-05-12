@@ -1,13 +1,29 @@
+require("dotenv").config();
+
 var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-
+const mongoose = require("mongoose");
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-const currencyRouter = require("./routes/api/v1/currency");
+const transfersRouter = require("./routes/api/v1/transfers");
+const usersRouter = require("./routes/api/v1/users");
 const frontendRouter = require("./routes/frontend");
+
+mongoose.connect(
+  `mongodb+srv://admin:${process.env.DB_PASS}@digico.vjbbh.mongodb.net/digico?retryWrites=true&w=majority`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
+
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", function () {
+  console.log("connected!");
+});
 
 var app = express();
 
@@ -22,8 +38,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/api/v1/currency", currencyRouter);
+app.use("/api/v1/transfers", transfersRouter);
+app.use("/api/v1/users", usersRouter);
 app.use("/frontend", frontendRouter);
 
 // catch 404 and forward to error handler

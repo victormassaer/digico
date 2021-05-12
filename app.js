@@ -63,8 +63,8 @@ app.use(function (err, req, res, next) {
   });
 });
 
-app.listen(3001, function () {
-  console.log("Server is running on port 3001");
+app.listen(process.env.LOCAL_PORT, function () {
+  console.log(`Server is running on port ${process.env.LOCAL_PORT}`);
 });
 
 module.exports = app;

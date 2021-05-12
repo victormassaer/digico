@@ -6,6 +6,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const mongoose = require("mongoose");
+const cors = require("cors");
 var indexRouter = require("./routes/index");
 const transfersRouter = require("./routes/api/v1/transfers");
 const usersRouter = require("./routes/api/v1/users");
@@ -37,6 +38,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(cors());
 app.use("/", indexRouter);
 app.use("/api/v1/transfers", transfersRouter);
 app.use("/api/v1/users", usersRouter);

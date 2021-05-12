@@ -215,3 +215,37 @@ body {
 .user .name {
   font-weight: bold;
 }
+
+.header--transfer {
+  background-color: #f3f3f3;
+  display: flex;
+  flex-direction: row;
+}
+
+.header--transfer .coins {
+  margin-left: auto;
+  margin-right: 1em;
+  background-color: #0099ff;
+  border-radius: 0.8em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: white;
+}
+
+.transfer--info h2 {
+  text-align: center;
+}
+
+.form--transfer {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+
+.form--transfer .input {
+  margin-bottom: 1em;
+}
+
+.form--transfer .btn {
+  border: none;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./stylesheets/app.css">
+    <title>transfer</title>
+</head>
+<body>
+    <header class="header--transfer">
+        <div class="nav">nav</div>
+        <div class="coins">
+          <h3>3000 coins</h3>
+        </div>
+      </header>
+
+      <section class="transfer--info">
+          <h2>Send some coins!</h2>
+          <form action="" method="post" class="form--transfer">
+              <label for="">username</label>
+              <input type="text" id="username" class="input" name="username">
+
+              <label for="amount">how much coins?</label>
+              <input type="number" id="amount" class="input" name="amount">
+
+              <label for="reason">what is the reason for your kindnes?</label>
+              <select name="reason" id="reason" class="input">
+                  <option value="development help">development help</option>
+                  <option value="design help">design help</option>
+                  <option value="feedback">feedback</option>
+                  <option value="meeting deadlines">meeting deadlines</option>
+                  <option value="other">other</option>
+              </select>
+
+              <label for="description">want to add something?</label>
+              <input type="text" id="description" class="input">
+
+              <input type="submit" class="btn" value="send some coins!">
+          </form>
+      </section>
+</body>
+</html>

@@ -1,14 +1,15 @@
-document.querySelector("#signin").addEventListener("click", () => {
-  let email = document.querySelector("#email").value;
-  let password = document.querySelector("password").value;
+document.querySelector("#btnSignin").addEventListener("click", (e) => {
+  e.preventDefault();
+  let username = document.querySelector("#username").value;
+  let password = document.querySelector("#password").value;
 
-  fetch("HIER KOMT VERDERE ROUTE", {
+  fetch("http://localhost:3001/api/v1/users/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      email: email,
+      username: username,
       password: password,
     }),
   })
@@ -16,8 +17,11 @@ document.querySelector("#signin").addEventListener("click", () => {
       return response.json();
     })
     .then((json) => {
-      if (json.status === "succes") {
-        console.log("Sign in complete");
+      if (json.data.user.user !== false) {
+        console.log(json.data.user.user);
+        window.location.href = "../feed.html";
+      } else {
+        console.error("Error:", json.data.user.error.message);
       }
     })
     .catch((error) => {

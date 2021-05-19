@@ -52,6 +52,41 @@ $headerradius: 1em;
     color: black;
 }
 
+
+//style van navigation
+.navigation{
+    background-color: $almostgrey;
+    padding-left: 2em;
+    display: none;
+}
+
+.nav{
+    padding-top: 0.5em;
+    padding-left: 0.5em;
+}
+
+.nav img{
+    width: 40px;
+}
+
+.navItem{
+    display: block;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 0.5em;
+}
+
+.navItem:hover{
+    color: $hoverblue;
+    font-size: 1.3em;
+}
+
+.navItem__active{
+    color: $blue;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
 //style van login pagina
 body{
     box-sizing: border-box;

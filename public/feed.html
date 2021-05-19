@@ -11,11 +11,19 @@
 
 <body>
   <header class="header--feed">
-    <div class="nav">nav</div>
+    <div class="nav"><a href="#"><img src="./../Hamburger_icon.svg.png" alt="hamburger icon"></a></div>
     <div class="coins">
       <h3>3000 coins</h3>
     </div>
   </header>
+
+  <section class="navigation">
+    <a href="#" class="navItem navItem__active">feed</a>
+    <a href="transfer.html" class="navItem">send some coins</a>
+    <a href="leaderboard.html" class="navItem">leaderboard</a>
+    <a href="history.html" class="navItem">history</a>
+    <a href="#" class="navItem">logout</a>
+  </section>
 
   <section class="balance">
     <h4>Current balance</h4>
@@ -37,6 +45,8 @@
       <h3 class="amount">+ 5</h3>
     </div>
   </section>
+
+  <script src="./javascript/hamburger.js"></script>
 </body>
 
 </html>

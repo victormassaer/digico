@@ -43,6 +43,39 @@
   color: black;
 }
 
+.navigation {
+  background-color: #f3f3f3;
+  padding-left: 2em;
+  display: none;
+}
+
+.nav {
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+}
+
+.nav img {
+  width: 40px;
+}
+
+.navItem {
+  display: block;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 0.5em;
+}
+
+.navItem:hover {
+  color: #006cb4;
+  font-size: 1.3em;
+}
+
+.navItem__active {
+  color: #0099ff;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
 body {
   box-sizing: border-box;
   font-family: sans-serif;

@@ -9,11 +9,19 @@
 </head>
 <body>
     <header class="header--transfer">
-        <div class="nav">nav</div>
+        <div class="nav"><a href="#"><img src="./../Hamburger_icon.svg.png" alt="hamburger icon"></a></div>
         <div class="coins">
           <h3>3000 coins</h3>
         </div>
       </header>
+
+      <section class="navigation">
+        <a href="feed.html" class="navItem">feed</a>
+        <a href="transfer.html" class="navItem navItem__active">send some coins</a>
+        <a href="leaderboard.html" class="navItem">leaderboard</a>
+        <a href="history.html" class="navItem">history</a>
+        <a href="#" class="navItem">logout</a>
+      </section>
 
       <section class="transfer--info">
           <h2>Send some coins!</h2>
@@ -39,5 +47,7 @@
               <input type="submit" class="btn" value="send some coins!" id="btn--transfer">
           </form>
       </section>
+
+      <script src="javascript/hamburger.js"></script>
 </body>
 </html>

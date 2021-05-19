@@ -6,6 +6,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const mongoose = require("mongoose");
+mongoose.set("useCreateIndex", true);
 const cors = require("cors");
 const transfersRouter = require("./routes/api/v1/transfers");
 const usersRouter = require("./routes/api/v1/users");

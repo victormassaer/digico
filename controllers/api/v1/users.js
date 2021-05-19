@@ -1,7 +1,7 @@
 const User = require("../../../models/User");
 const { get } = require("../../../routes/api/v1/users");
 
-const createUser = (req, res) => {
+const createUser = (req, res, next) => {
   let user = new User();
   user.firstName = req.body.firstName;
   user.lastName = req.body.lastName;

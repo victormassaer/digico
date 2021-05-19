@@ -22,6 +22,9 @@ document.querySelector("#btnSignup").addEventListener("click", (e) => {
     .then((json) => {
       if (json.status === "succes") {
         console.log("Sign up complete");
+
+        let token = json.data.token;
+        localStorage.setItem("token", token);
         window.location.href = "../feed.html";
       }
     })

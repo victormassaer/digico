@@ -4,7 +4,7 @@ document.querySelector("#btn--transfer").addEventListener("click", ()=>{
     let reason = document.querySelector("#reason").value;
     let description = document.querySelector("#description").value;
 
-    fetch('HIER KOMT VERDERE ROUTE', {
+    fetch('http://localhost:3000/api/v1/transfers/transfers', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -52,6 +52,41 @@ $headerradius: 1em;
     color: black;
 }
 
+
+//style van navigation
+.navigation{
+    background-color: $almostgrey;
+    padding-left: 2em;
+    display: none;
+}
+
+.nav{
+    padding-top: 0.5em;
+    padding-left: 0.5em;
+}
+
+.nav img{
+    width: 40px;
+}
+
+.navItem{
+    display: block;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 0.5em;
+}
+
+.navItem:hover{
+    color: $hoverblue;
+    font-size: 1.3em;
+}
+
+.navItem__active{
+    color: $blue;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
 //style van login pagina
 body{
     box-sizing: border-box;
@@ -275,3 +310,32 @@ body{
 .form--transfer .btn{
     border: none;
 }
+
+//style van leaderboard
+.title__leaderboard{
+    text-align: center;
+}
+
+.leaderboard{
+    text-align: center;
+    background-color: $cloudgrey;
+    margin-left: 1em;
+    margin-right: 1em;
+    border-radius: $headerradius;
+}
+
+.leaderboard .list{
+    list-style: none;
+    padding: 0;
+}
+
+.leaderboard .list .person .name{
+    margin-right: 1em;
+}
+
+.leaderboard .list .person .coins{
+    margin-left: 1em;
+    font-weight: bold;
+    color: $blue;
+}
+

@@ -32,4 +32,23 @@ const signup = async (req, res, next) => {
     });
 };
 
+const login = async (req, res, next) => {
+  const user = await User.authenticate()(req.body.username, req.body.password)
+    .then((result) => {
+      res.json({
+        status: "succes",
+        data: {
+          user: result,
+        },
+      });
+    })
+    .catch((error) => {
+      res.json({
+        status: "error",
+        message: error.message,
+      });
+    });
+};
+
 module.exports.signup = signup;
+module.exports.login = login;

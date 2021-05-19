@@ -29,3 +29,14 @@ document.querySelector("#btnLogin").addEventListener("click", () => {
             console.error('Error:', error);
         });
 });
+
+document.querySelector("#email").addEventListener("keypress", ()=>{
+    let val = document.querySelector('#email').value;
+    console.log(val);
+
+    if(!val.includes("@student.thomasmore.be")){
+        console.log('email moet @student.thomasmore.be bevatten');
+    }else{
+        console.log("email goedgekeurd");
+    }
+});

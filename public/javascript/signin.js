@@ -2,7 +2,7 @@ document.querySelector("#signin").addEventListener("click", () =>{
     let email = document.querySelector("#email").value;
     let password = document.querySelector("password").value;
 
-    fetch('HIER KOMT VERDERE ROUTE', {
+    fetch('http://localhost:3000/frontend/signin', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -39,7 +39,7 @@ app.use("/api/v1/users", usersRouter);
 app.use("/pages", pagesRouter);
 
 //pages
-app.get("/index", pagesRouter);
+app.get("/", pagesRouter);
 app.get("/signup", pagesRouter);
 app.get("/signin", pagesRouter);
 app.get("/transfer", pagesRouter);

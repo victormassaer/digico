@@ -3,7 +3,7 @@ const router = express.Router();
 const pagesController = require("../controllers/pages");
 const app = express();
 
-router.get("/index", pagesController.index);
+router.get("/", pagesController.feed);
 
 router.get("/login", pagesController.login);
 

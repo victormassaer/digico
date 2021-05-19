@@ -1,7 +1,3 @@
-function index(req, res) {
-  res.sendFile("index.html", { root: "public" });
-}
-
 function login(req, res) {
   res.sendFile("login.html", { root: "public" });
 }
@@ -22,7 +18,6 @@ function feed(req, res) {
   res.sendFile("feed.html", { root: "public" });
 }
 
-module.exports.index = index;
 module.exports.login = login;
 module.exports.signup = signup;
 module.exports.signin = signin;

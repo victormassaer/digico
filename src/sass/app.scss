@@ -275,3 +275,32 @@ body{
 .form--transfer .btn{
     border: none;
 }
+
+//style van leaderboard
+.title__leaderboard{
+    text-align: center;
+}
+
+.leaderboard{
+    text-align: center;
+    background-color: $cloudgrey;
+    margin-left: 1em;
+    margin-right: 1em;
+    border-radius: $headerradius;
+}
+
+.leaderboard .list{
+    list-style: none;
+    padding: 0;
+}
+
+.leaderboard .list .person .name{
+    margin-right: 1em;
+}
+
+.leaderboard .list .person .coins{
+    margin-left: 1em;
+    font-weight: bold;
+    color: $blue;
+}
+

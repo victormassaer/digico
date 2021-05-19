@@ -17,11 +17,12 @@ document.querySelector("#btnSignin").addEventListener("click", (e) => {
       return response.json();
     })
     .then((json) => {
-      if (json.data.user.user !== false) {
-        console.log(json.data.user.user);
+      if (json.status === "succes") {
+        let token = json.data.token;
+        localStorage.setItem("token", token);
         window.location.href = "../feed.html";
       } else {
-        console.error("Error:", json.data.user.error.message);
+        console.log("login failed");
       }
     })
     .catch((error) => {

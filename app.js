@@ -36,12 +36,20 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cors());
-app.use("/api/v1/transfers", transfersRouter);
-app.use("/api/v1/users", usersRouter);
+app.use(
+  "/api/v1/transfers",
+  passport.authenticate("jwt", { session: false }),
+  transfersRouter
+);
+app.use(
+  "/api/v1/users",
+  passport.authenticate("jwt", { session: false }),
+  usersRouter
+);
 app.use("/pages", pagesRouter);
 
 //pages
-app.get("/", passport.authenticate("jwt", { session: false }), pagesRouter);
+app.get("/", pagesRouter);
 app.get("/signup", pagesRouter);
 app.get("/signin", pagesRouter);
 app.get("/transfer", pagesRouter);

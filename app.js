@@ -47,6 +47,13 @@ app.use(
   passport.authenticate("jwt", { session: false }),
   usersRouter
 );
+
+app.use(
+  "/auth/loggedin",
+  passport.authenticate("jwt", { session: false }),
+  authRouter
+);
+
 app.use("/pages", pagesRouter);
 app.use("/auth", authRouter);
 

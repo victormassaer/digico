@@ -75,5 +75,13 @@ const login = async (req, res, next) => {
     });
 };
 
+const loggedIn = (req, res) => {
+  res.json({
+    status: "succes",
+    message: "LOGGED IN",
+  });
+};
+
 module.exports.signup = signup;
 module.exports.login = login;
+module.exports.loggedIn = loggedIn;

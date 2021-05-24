@@ -7,7 +7,7 @@ const signup = async (req, res, next) => {
   let firstName = req.body.firstName;
   let lastName = req.body.lastName;
   let email = req.body.email;
-  let coins = req.body.coins;
+  let coins = 100;
   let created = Date.now();
   const user = new User({
     username: username,

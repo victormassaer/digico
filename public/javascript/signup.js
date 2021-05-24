@@ -5,14 +5,16 @@ document.querySelector("#btnSignup").addEventListener("click", (e) => {
   let username = document.querySelector("#username").value;
   let email = document.querySelector("#email").value;
   let password = document.querySelector("#password").value;
-  console.log(username, password);
   fetch(`http://localhost:3000/api/v1/users/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
+      firstName: firstName,
+      lastName: lastName,
       username: username,
+      email: email,
       password: password,
     }),
   })

@@ -41,11 +41,7 @@ app.use(
   passport.authenticate("jwt", { session: false }),
   transfersRouter
 );
-app.use(
-  "/api/v1/users",
-  passport.authenticate("jwt", { session: false }),
-  usersRouter
-);
+app.use("/api/v1/users", usersRouter);
 app.use("/pages", pagesRouter);
 
 //pages

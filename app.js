@@ -12,6 +12,7 @@ const passport = require("./passport/passport");
 const transfersRouter = require("./routes/api/v1/transfers");
 const usersRouter = require("./routes/api/v1/users");
 const pagesRouter = require("./routes/pages");
+const authRouter = require("./routes/auth");
 
 mongoose.connect(
   `mongodb+srv://admin:${process.env.DB_PASS}@digico.vjbbh.mongodb.net/digico?retryWrites=true&w=majority`,
@@ -41,8 +42,13 @@ app.use(
   passport.authenticate("jwt", { session: false }),
   transfersRouter
 );
-app.use("/api/v1/users", usersRouter);
+app.use(
+  "/api/v1/users",
+  passport.authenticate("jwt", { session: false }),
+  usersRouter
+);
 app.use("/pages", pagesRouter);
+app.use("/auth", authRouter);
 
 //pages
 app.get("/", pagesRouter);

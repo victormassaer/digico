@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const signup = async (req, res, next) => {
   let username = req.body.username;
@@ -26,7 +27,7 @@ const signup = async (req, res, next) => {
           uid: result._id,
           username: result.username,
         },
-        "MyVerySecretWord"
+        process.env.PASSWORD_SECRET
       );
       res.json({
         status: "succes",
@@ -57,7 +58,7 @@ const login = async (req, res, next) => {
           uid: result.user._id,
           username: result.user.username,
         },
-        "MyVerySecretWord"
+        process.env.PASSWORD_SECRET
       );
       return res.json({
         status: "succes",

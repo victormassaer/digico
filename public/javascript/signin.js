@@ -3,7 +3,7 @@ document.querySelector("#btnSignin").addEventListener("click", (e) => {
   let username = document.querySelector("#username").value;
   let password = document.querySelector("#password").value;
 
-  fetch("http://localhost:3001/api/v1/users/login", {
+  fetch("http://localhost:3000/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -1,5 +1,6 @@
 const passport = require("passport");
 const User = require("../models/User");
+require("dotenv").config();
 
 // CHANGE: USE "createStrategy" INSTEAD OF "authenticate"
 passport.use(User.createStrategy());
@@ -13,7 +14,7 @@ const JwtStrategy = require("passport-jwt").Strategy,
   ExtractJwt = require("passport-jwt").ExtractJwt;
 let opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrKey = "MyVerySecretWord";
+opts.secretOrKey = process.env.PASSWORD_SECRET;
 passport.use(
   new JwtStrategy(opts, (jwt_payload, done) => {
     User.findOne({ _id: jwt_payload.uid }, (err, user) => {

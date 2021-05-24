@@ -55,6 +55,8 @@ app.get("/signin", pagesRouter);
 app.get("/transfer", pagesRouter);
 app.get("/login", pagesRouter);
 app.get("/feed", pagesRouter);
+app.get("/leaderboard", pagesRouter);
+app.get("/history", pagesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

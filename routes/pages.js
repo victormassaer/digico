@@ -15,4 +15,8 @@ router.get("/transfer", pagesController.transfer);
 
 router.get("/feed", pagesController.feed);
 
+router.get("/leaderboard", pagesController.leaderboard);
+
+router.get("/history", pagesController.history);
+
 module.exports = router;

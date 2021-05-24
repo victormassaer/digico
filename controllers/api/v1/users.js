@@ -20,4 +20,3 @@ function getLeaderboard(req, res) {
 }
 
 module.exports.getLeaderboard = getLeaderboard;
-module.exports.createUser = createUser;

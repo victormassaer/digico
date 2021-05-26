@@ -1,7 +1,7 @@
 const User = require("../../../models/User");
 const { get } = require("../../../routes/api/v1/users");
 
-function getLeaderboard(req, res) {
+const getLeaderboard = (req, res) => {
   User.find({})
     .sort({ coins: "descending" })
     .exec((err, doc) => {
@@ -19,9 +19,9 @@ function getLeaderboard(req, res) {
         });
       }
     });
-}
+};
 
-function getUserById(req, res) {
+const getUserById = (req, res) => {
   let id = req.params.id;
   User.findById(id).exec((err, doc) => {
     if (err) {
@@ -38,7 +38,7 @@ function getUserById(req, res) {
       });
     }
   });
-}
+};
 
 module.exports.getLeaderboard = getLeaderboard;
 module.exports.getUserById = getUserById;

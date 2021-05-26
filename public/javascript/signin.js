@@ -1,25 +1,31 @@
-document.querySelector("#signin").addEventListener("click", () =>{
-    let email = document.querySelector("#email").value;
-    let password = document.querySelector("password").value;
+document.querySelector("#btnSignin").addEventListener("click", (e) => {
+  e.preventDefault();
+  let username = document.querySelector("#username").value;
+  let password = document.querySelector("#password").value;
 
-    fetch('http://localhost:3000/frontend/signin', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            "email": email,
-            "password": password
-        }),
+  fetch("http://localhost:3000/auth/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username: username,
+      password: password,
+    }),
+  })
+    .then((response) => {
+      return response.json();
     })
-        .then(response => {
-            return response.json();
-        }).then(json => {
-            if(json.status === "succes") {
-                console.log("Sign in complete");
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+    .then((json) => {
+      if (json.status === "succes") {
+        let token = json.data.token;
+        localStorage.setItem("token", token);
+        window.location.href = "../feed.html";
+      } else {
+        console.log("login failed");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 });

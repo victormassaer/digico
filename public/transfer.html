@@ -1,53 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./stylesheets/app.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./stylesheets/app.css" />
     <title>transfer</title>
-</head>
-<body>
+  </head>
+  <body>
+    <script src="javascript/loggedin.js"></script>
     <header class="header--transfer">
-        <div class="nav"><a href="#"><img src="./../Hamburger_icon.svg.png" alt="hamburger icon"></a></div>
-        <div class="coins">
-          <h3>3000 coins</h3>
-        </div>
-      </header>
+      <div class="nav">
+        <a href="#"
+          ><img src="./../Hamburger_icon.svg.png" alt="hamburger icon"
+        /></a>
+      </div>
+      <div class="coins">
+        <h3>3000 coins</h3>
+      </div>
+    </header>
 
-      <section class="navigation">
-        <a href="feed.html" class="navItem">feed</a>
-        <a href="transfer.html" class="navItem navItem__active">send some coins</a>
-        <a href="leaderboard.html" class="navItem">leaderboard</a>
-        <a href="history.html" class="navItem">history</a>
-        <a href="#" class="navItem">logout</a>
-      </section>
+    <section class="navigation">
+      <a href="feed" class="navItem">feed</a>
+      <a href="#" class="navItem navItem__active">send some coins</a>
+      <a href="leaderboard" class="navItem">leaderboard</a>
+      <a href="history" class="navItem">history</a>
+      <a href="#" class="navItem">logout</a>
+    </section>
 
-      <section class="transfer--info">
-          <h2>Send some coins!</h2>
-          <form action="" method="post" class="form--transfer">
-              <label for="">username</label>
-              <input type="text" id="username" class="input" name="username">
+    <section class="transfer--info">
+      <h2>Send some coins!</h2>
+      <form action="" method="post" class="form--transfer">
+        <label for="">username</label>
+        <input type="text" id="username" class="input" name="username" />
 
-              <label for="amount">how much coins?</label>
-              <input type="number" id="amount" class="input" name="amount">
+        <label for="amount">how much coins?</label>
+        <input type="number" id="amount" class="input" name="amount" />
 
-              <label for="reason">what is the reason for your kindnes?</label>
-              <select name="reason" id="reason" class="input">
-                  <option value="development help">development help</option>
-                  <option value="design help">design help</option>
-                  <option value="feedback">feedback</option>
-                  <option value="meeting deadlines">meeting deadlines</option>
-                  <option value="other">other</option>
-              </select>
+        <label for="reason">what is the reason for your kindnes?</label>
+        <select name="reason" id="reason" class="input">
+          <option value="development help">development help</option>
+          <option value="design help">design help</option>
+          <option value="feedback">feedback</option>
+          <option value="meeting deadlines">meeting deadlines</option>
+          <option value="other">other</option>
+        </select>
 
-              <label for="description">want to add something?</label>
-              <input type="text" id="description" class="input">
+        <label for="description">want to add something?</label>
+        <input type="text" id="description" class="input" />
 
-              <input type="submit" class="btn" value="send some coins!" id="btn--transfer">
-          </form>
-      </section>
+        <input
+          type="submit"
+          class="btn"
+          value="send some coins!"
+          id="btn--transfer"
+        />
+      </form>
+    </section>
 
-      <script src="javascript/hamburger.js"></script>
-</body>
+    <script src="javascript/hamburger.js"></script>
+  </body>
 </html>

@@ -33,6 +33,7 @@ const signup = async (req, res, next) => {
         status: "succes",
         data: {
           token: token,
+          id: result._id,
         },
       });
     })

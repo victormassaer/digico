@@ -1,7 +1,7 @@
 const Transfer = require("../../../models/Transfer");
 const { get } = require("../../../routes/api/v1/transfers");
 
-function addTransfer(req, res) {
+const addTransfer = (req, res) => {
   let transfer = new Transfer();
   transfer.senderId = req.body.senderId;
   transfer.receiverId = req.body.receiverId;
@@ -24,9 +24,9 @@ function addTransfer(req, res) {
       });
     }
   });
-}
+};
 
-function getAllTransfers(req, res) {
+const getAllTransfers = (req, res) => {
   Transfer.find({}, (err, doc) => {
     if (err) {
       res.json({
@@ -42,9 +42,9 @@ function getAllTransfers(req, res) {
       });
     }
   });
-}
+};
 
-function getTransferById(req, res) {
+const getTransferById = (req, res) => {
   let transferId = req.params.id;
   Transfer.findOne({ _id: transferId }, (err, doc) => {
     if (err) {
@@ -63,7 +63,7 @@ function getTransferById(req, res) {
       });
     }
   });
-}
+};
 
 module.exports.addTransfer = addTransfer;
 module.exports.getAllTransfers = getAllTransfers;

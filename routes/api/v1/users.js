@@ -6,4 +6,6 @@ const app = express();
 
 router.get("/leaderboard", usersController.getLeaderboard);
 
+router.get("/user/:id", usersController.getUserById);
+
 module.exports = router;

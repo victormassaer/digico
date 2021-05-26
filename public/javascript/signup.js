@@ -30,7 +30,7 @@ document.querySelector("#btnLogin").addEventListener("click", () => {
         });
 });
 
-document.querySelector("#email").addEventListener("keypress", ()=>{
+document.querySelector("#email").addEventListener("keyup", ()=>{
     let val = document.querySelector('#email').value;
     console.log(val);
 

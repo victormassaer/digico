@@ -27,6 +27,8 @@ document.querySelector("#btnSignup").addEventListener("click", (e) => {
 
         let token = json.data.token;
         localStorage.setItem("token", token);
+        let id = json.data.id;
+        localStorage.setItem("id", id);
         window.location.href = "../feed.html";
       }
     })

@@ -20,6 +20,8 @@ document.querySelector("#btnSignin").addEventListener("click", (e) => {
       if (json.status === "succes") {
         let token = json.data.token;
         localStorage.setItem("token", token);
+        let id = json.data.id;
+        localStorage.setItem("id", id);
         window.location.href = "../feed.html";
       } else {
         console.log("login failed");

@@ -1,3 +1,5 @@
+const primus = require("primus");
+
 document.querySelector("#btn--transfer").addEventListener("click", ()=>{
     let username = document.querySelector("#username").value;
     let amount = document.querySelector("#amount").value;
@@ -21,6 +23,10 @@ document.querySelector("#btn--transfer").addEventListener("click", ()=>{
         }).then(json => {
             if(json.status === "succes") {
                 console.log("transaction complete");
+
+                primus.write({
+                    "data" : json
+                })
             }
         })
         .catch((error) => {

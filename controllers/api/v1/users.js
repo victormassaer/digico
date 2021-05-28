@@ -34,7 +34,7 @@ const getUserById = (req, res) => {
       res.json({
         status: "succes",
         message: "found user",
-        data: { user: doc },
+        data: doc,
       });
     }
   });

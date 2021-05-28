@@ -37,8 +37,8 @@ const getAllTransfers = (req, res) => {
     if (!err) {
       res.json({
         status: "succes",
-        message: "GETTING TRANSFER",
-        data: { message: doc },
+        message: "got all transfers",
+        data: doc,
       });
     }
   });

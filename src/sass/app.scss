@@ -2,340 +2,335 @@ $blue: rgb(0, 153, 255);
 $hoverblue: rgb(0, 108, 180);
 $cloudgrey: lightgray;
 $thundergrey: rgb(128, 127, 127);
-$almostgrey: rgb(243, 243, 243); 
+$almostgrey: rgb(243, 243, 243);
 $inputradius: 0.8em;
 $headerradius: 1em;
 
 //algemene style
-.btn{
-    text-decoration: none;
-    font-size: 1.5em;
-    font-weight: bold;
-    padding: 0.5em 3em;
-    background-color: $blue;
-    border-radius: 0.4em;
-    color: white;
+.btn {
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 0.5em 3em;
+  background-color: $blue;
+  border-radius: 0.4em;
+  color: white;
 }
 
-.btn:hover{
-    background-color: $hoverblue;
+.btn:hover {
+  background-color: $hoverblue;
 }
 
-.btn--white{
-    color: black;
-    background-color: $cloudgrey;
+.btn--white {
+  color: black;
+  background-color: $cloudgrey;
 }
 
-.btn--white:hover{
-    background-color: $thundergrey;
+.btn--white:hover {
+  background-color: $thundergrey;
 }
 
-.input{
-    border: none;
-    background-color: $cloudgrey;
-    padding: 1em 0.5em;
-    border-radius: $inputradius;
+.input {
+  border: none;
+  background-color: $cloudgrey;
+  padding: 1em 0.5em;
+  border-radius: $inputradius;
 }
 
-.link{
-    text-align: center;
+.link {
+  text-align: center;
 }
 
-.link a{
-    text-decoration: none;
-    color: $thundergrey;
-    font-size: 1.5em;
-    font-weight: bold;
+.link a {
+  text-decoration: none;
+  color: $thundergrey;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
-.link a:hover{
-    color: black;
+.link a:hover {
+  color: black;
 }
-
 
 //style van navigation
-.navigation{
-    background-color: $almostgrey;
-    padding-left: 2em;
-    display: none;
+.navigation {
+  background-color: $almostgrey;
+  padding-left: 2em;
+  padding-bottom: 0.25em;
+  display: none;
 }
 
-.nav{
-    padding-top: 0.5em;
-    padding-left: 0.5em;
+.nav {
+  padding-top: 0.5em;
+  padding-left: 0.5em;
 }
 
-.nav img{
-    width: 40px;
+.nav img {
+  width: 40px;
 }
 
-.navItem{
-    display: block;
-    text-decoration: none;
-    color: black;
-    margin-bottom: 0.5em;
+.navItem {
+  display: block;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 0.5em;
 }
 
-.navItem:hover{
-    color: $hoverblue;
-    font-size: 1.3em;
+.navItem:hover {
+  color: $hoverblue;
 }
 
-.navItem__active{
-    color: $blue;
-    font-weight: bold;
-    font-size: 1.3em;
+.navItem__active {
+  color: $blue;
+  font-weight: bold;
 }
 
 //style van login pagina
-body{
-    box-sizing: border-box;
-    font-family: sans-serif;
-    margin: 0;
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
 }
 
-.logo{
-    text-align: center;
-    margin-top: 5em;
+.logo {
+  text-align: center;
+  margin-top: 5em;
 }
 
-.logo img{
-    width: 30%;
+.logo img {
+  width: 30%;
 }
 
-.logo h1{
-    font-weight: bold;
+.logo h1 {
+  font-weight: bold;
 }
 
-.logo .bold{
-    font-weight: bold;
+.logo .bold {
+  font-weight: bold;
 }
 
-
-.start{
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    padding-left: 5em;
-    padding-right: 5em;
+.start {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-left: 5em;
+  padding-right: 5em;
 }
-
 
 //style van signin form
-.signin{
-    margin-bottom: 1em;
+.signin {
+  margin-bottom: 1em;
 }
 
-.header--signin{
-    text-align: center;
-    background-color: $blue;
-    border-bottom-left-radius: $headerradius;
-    border-bottom-right-radius: $headerradius;
+.header--signin {
+  text-align: center;
+  background-color: $blue;
+  border-bottom-left-radius: $headerradius;
+  border-bottom-right-radius: $headerradius;
 }
 
-.header--signin .title{
-    margin: 0;
-    color: white;
-    padding: 4em;
+.header--signin .title {
+  margin: 0;
+  color: white;
+  padding: 4em;
 }
 
-.form--signin{
-    display: flex;
-    flex-direction: column;
-    padding: 2em;
+.form--signin {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
 }
 
-.form--signin .input{
-    margin-bottom: 1em;
+.form--signin .input {
+  margin-bottom: 1em;
 }
 
-.form--signin .btn{
-    border: none;
+.form--signin .btn {
+  border: none;
 }
-
-
 
 //style van de signup page
-.header--signup{
-    text-align: center;
-    background-color: $blue;
-    padding: 2em;
-    border-bottom-right-radius: $headerradius;
-    border-bottom-left-radius: $headerradius;
+.header--signup {
+  text-align: center;
+  background-color: $blue;
+  padding: 2em;
+  border-bottom-right-radius: $headerradius;
+  border-bottom-left-radius: $headerradius;
 }
 
-.header--signup h1{
-    color: white;
+.header--signup h1 {
+  color: white;
 }
 
-.form--signup{
-    display: flex;
-    flex-direction: column; 
-    padding: 2em;
+.form--signup {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
 }
 
-.form--signup .input{
-    margin-bottom: 1em;
+.form--signup .input {
+  margin-bottom: 1em;
 }
 
-.form--signup .btn{
-    border: none;
+.form--signup .btn {
+  border: none;
 }
-
 
 //style van de feed
 
-.header--feed{
-    background-color: $almostgrey;
-    display: flex;
-    flex-direction: row;
+.header--feed {
+  background-color: $almostgrey;
+  display: flex;
+  flex-direction: row;
 }
 
-.header--feed .coins{
-    margin-left: auto;
-    margin-right: 1em;
-    background-color: $blue;
-    border-radius: $inputradius;
-    margin-top: 1em;
-    margin-bottom: 1em;
+.header--feed .coins {
+  margin-left: auto;
+  margin-right: 1em;
+  background-color: $blue;
+  border-radius: $inputradius;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
-.header--feed .coins h3{
-    color: white;
-    margin: 0.5em 1em;
+.header--feed .coins h3 {
+  color: white;
+  margin: 0.5em 1em;
 }
 
-.balance{
-    padding-left: 2em;
+.balance {
+  padding-left: 2em;
 }
 
-.balance h4{
-    color: $thundergrey;
-    margin-bottom: 0.5em;
+.balance h4 {
+  color: $thundergrey;
+  margin-bottom: 0.5em;
 }
 
-.balance h1{
-    font-size: 2em;
-    margin-top: 0;
+.balance h1 {
+  font-size: 2em;
+  margin-top: 0;
 }
 
-.transactions{
-    background-color: $cloudgrey;
-    margin-left: 1em;
-    margin-right: 1em;
-    border-radius: $headerradius;
-    padding: 1em;
+.transactions {
+  background-color: $cloudgrey;
+  margin-left: 1em;
+  margin-right: 1em;
+  border-radius: $headerradius;
+  padding: 1em;
 }
 
-.transactions h3{
-    margin-top: 0;
-    color: $thundergrey;
+.transactions h3 {
+  margin-top: 0;
+  color: $thundergrey;
 }
 
-.transaction{
-    display: grid;
-    grid-template-columns: 10% 80% 10%;
-    grid-template-rows: 40% 60%;
-    margin-bottom: 1em;
+.transaction {
+  display: grid;
+  grid-template-columns: 25% 55% 20%;
+  grid-template-rows: 40% 60%;
+  margin-top: 1em;
+
+  .transaction--image {
+    width: 50px;
+  }
 }
 
-.transaction img{
-    grid-column: 1/2;
-    grid-row: 1/3;
+.transaction img {
+  grid-column: 1/2;
+  grid-row: 1/3;
 
-    justify-self: center;
-    align-self: center;
+  justify-self: center;
+  align-self: center;
 }
 
-.transaction .user{
-    grid-column: 2/3;
-    grid-row: 1/2;
+.transaction .user {
+  grid-column: 2/3;
+  grid-row: 1/2;
 
-    margin: 0;
+  margin: 0;
 }
 
-.transaction .description{
-    grid-column: 2/3;
-    grid-row: 2/3;
+.transaction .description {
+  grid-column: 2/3;
+  grid-row: 2/3;
 
-    margin: 0;
+  margin: 0;
 }
 
-.transaction .amount{
-    grid-column: 3/4;
-    grid-row: 1/3;
+.transaction .amount {
+  grid-column: 3/4;
+  grid-row: 1/3;
 
-    justify-self: center;
-    align-self: center;
-    color: black;
+  justify-self: center;
+  align-self: center;
+  color: black;
 }
 
-.user .name{
-    font-weight: bold;
+.user .name {
+  font-weight: bold;
 }
 
 //style van de transfer page
 
-.header--transfer{
-    background-color: $almostgrey;
-    display: flex;
-    flex-direction: row;
+.header--transfer {
+  background-color: $almostgrey;
+  display: flex;
+  flex-direction: row;
 }
 
-.header--transfer .coins{
-    margin-left: auto;
-    margin-right: 1em;
-    background-color: $blue;
-    border-radius: $inputradius;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    color: white;
+.header--transfer .coins {
+  margin-left: auto;
+  margin-right: 1em;
+  background-color: $blue;
+  border-radius: $inputradius;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: white;
 }
 
-.transfer--info h2{
-    text-align: center;
-
+.transfer--info h2 {
+  text-align: center;
 }
 
-.form--transfer{
-    display: flex;
-    flex-direction: column; 
-    padding: 2em;
+.form--transfer {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
 }
 
-.form--transfer .input{
-    margin-bottom: 1em;
+.form--transfer .input {
+  margin-bottom: 1em;
 }
 
-.form--transfer .btn{
-    border: none;
+.form--transfer .btn {
+  border: none;
 }
 
 //style van leaderboard
-.title__leaderboard{
-    text-align: center;
+.title__leaderboard {
+  text-align: center;
 }
 
-.leaderboard{
-    text-align: center;
-    background-color: $cloudgrey;
-    margin-left: 1em;
-    margin-right: 1em;
-    border-radius: $headerradius;
+.leaderboard {
+  text-align: center;
+  background-color: $cloudgrey;
+  margin-left: 1em;
+  margin-right: 1em;
+  border-radius: $headerradius;
 }
 
-.leaderboard .list{
-    list-style: none;
-    padding: 0;
+.leaderboard .list {
+  list-style: none;
+  padding: 0;
 }
 
-.leaderboard .list .person .name{
-    margin-right: 1em;
+.leaderboard .list .person .name {
+  margin-right: 1em;
 }
 
-.leaderboard .list .person .coins{
-    margin-left: 1em;
-    font-weight: bold;
-    color: $blue;
+.leaderboard .list .person .coins {
+  margin-left: 1em;
+  font-weight: bold;
+  color: $blue;
 }
-

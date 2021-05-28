@@ -46,6 +46,7 @@
 .navigation {
   background-color: #f3f3f3;
   padding-left: 2em;
+  padding-bottom: 0.25em;
   display: none;
 }
 
@@ -67,13 +68,11 @@
 
 .navItem:hover {
   color: #006cb4;
-  font-size: 1.3em;
 }
 
 .navItem__active {
   color: #0099ff;
   font-weight: bold;
-  font-size: 1.3em;
 }
 
 body {
@@ -213,9 +212,12 @@ body {
 
 .transaction {
   display: grid;
-  grid-template-columns: 10% 80% 10%;
+  grid-template-columns: 25% 55% 20%;
   grid-template-rows: 40% 60%;
-  margin-bottom: 1em;
+  margin-top: 1em;
+}
+.transaction .transaction--image {
+  width: 50px;
 }
 
 .transaction img {

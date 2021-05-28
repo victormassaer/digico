@@ -32,8 +32,10 @@ fetch(`http://localhost:3000/api/v1/users/user/${id}`, {
     return response.json();
   })
   .then((result) => {
+    console.log(result);
     if (result.status === "succes") {
-      coins = result.data.user.coins;
+      console.log("test");
+      coins = result.data.coins;
       document.querySelectorAll(".coins--amount").forEach((item) => {
         item.innerHTML = `${coins} coins`;
       });

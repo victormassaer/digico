@@ -14,6 +14,7 @@ const usersRouter = require("./routes/api/v1/users");
 const pagesRouter = require("./routes/pages");
 const authRouter = require("./routes/auth");
 
+//add heroku deployment
 mongoose.connect(
   process.env.debconn ||
   `mongodb+srv://admin:${process.env.DB_PASS}@digico.vjbbh.mongodb.net/digico?retryWrites=true&w=majority`,

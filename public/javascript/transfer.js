@@ -13,7 +13,7 @@ document.querySelector("#btn--transfer").addEventListener("click", ()=>{
             "username": username,
             "amount": amount, 
             "reason": reason, 
-            "description": reason
+            "description": description
         }),
     })
         .then(response => {

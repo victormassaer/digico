@@ -6,7 +6,7 @@ const addTransfer = (req, res) => {
   transfer.senderId = req.body.senderId;
   transfer.receiverId = req.body.receiverId;
   transfer.reason = req.body.reason;
-  transfer.message = req.body.message;
+  transfer.message = req.body.description;
   transfer.amount = req.body.amount;
   transfer.created = Date.now();
   transfer.save((err, doc) => {

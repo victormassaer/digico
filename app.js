@@ -15,6 +15,7 @@ const pagesRouter = require("./routes/pages");
 const authRouter = require("./routes/auth");
 
 mongoose.connect(
+  process.env.debconn ||
   `mongodb+srv://admin:${process.env.DB_PASS}@digico.vjbbh.mongodb.net/digico?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,

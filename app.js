@@ -16,7 +16,7 @@ const authRouter = require("./routes/auth");
 
 //add heroku deployment
 mongoose.connect(
-  process.env.debconn ||
+  process.env.dbconn ||
   `mongodb+srv://admin:${process.env.DB_PASS}@digico.vjbbh.mongodb.net/digico?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,

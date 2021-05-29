@@ -13,10 +13,12 @@ fetch("http://localhost:3000/api/v1/users/leaderboard", {
       const list = document.querySelector(".list");
 
       users = result.data.users;
+      let i = 0;
       users.forEach((user) => {
+        i++;
         let person = document.createElement("LI");
         person.classList.add("person");
-        item = `<p><span class="name">${user.firstName} ${user.lastName}</span> - <span class="coins">${user.coins} coins</span></p>`;
+        item = `<p class="number">${i}</p><p class="name">${user.firstName} ${user.lastName}</p> - <p class="coins">${user.coins} coins</p>`;
         person.innerHTML = item;
         list.appendChild(person);
       });

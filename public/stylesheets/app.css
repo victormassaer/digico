@@ -313,22 +313,29 @@ body {
 }
 
 .leaderboard {
-  text-align: center;
-  background-color: lightgray;
-  margin-left: 1em;
-  margin-right: 1em;
-  border-radius: 1em;
+  margin: 0 1em;
 }
-
 .leaderboard .list {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1em;
+  background-color: lightgray;
   list-style: none;
-  padding: 0;
+  padding: 1em 2rem;
 }
-
+.leaderboard .list .person {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.leaderboard .list .person .number {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
 .leaderboard .list .person .name {
   margin-right: 1em;
 }
-
 .leaderboard .list .person .coins {
   margin-left: 1em;
   font-weight: bold;

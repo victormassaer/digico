@@ -5,7 +5,7 @@ document.querySelector("#btnSignup").addEventListener("click", (e) => {
   let username = document.querySelector("#username").value;
   let email = document.querySelector("#email").value;
   let password = document.querySelector("#password").value;
-  fetch(`http://localhost:3000/auth/signup`, {
+  fetch(`https://digico-webtech.herokuapp.com/auth/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -37,13 +37,13 @@ document.querySelector("#btnSignup").addEventListener("click", (e) => {
     });
 });
 
-document.querySelector("#email").addEventListener("keyup", ()=>{
-    let val = document.querySelector('#email').value;
-    console.log(val);
+document.querySelector("#email").addEventListener("keyup", () => {
+  let val = document.querySelector("#email").value;
+  console.log(val);
 
-    if(!val.includes("@student.thomasmore.be")){
-        console.log('email moet @student.thomasmore.be bevatten');
-    }else{
-        console.log("email goedgekeurd");
-    }
+  if (!val.includes("@student.thomasmore.be")) {
+    console.log("email moet @student.thomasmore.be bevatten");
+  } else {
+    console.log("email goedgekeurd");
+  }
 });

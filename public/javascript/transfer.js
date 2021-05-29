@@ -17,13 +17,16 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
       showError(validation);
     } else {
       if (!username.getAttribute("data-userid")) {
-        fetch(`http://localhost:3000/api/v1/users/user/${userid}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        })
+        fetch(
+          `https://digico-webtech.herokuapp.com/api/v1/users/user/${userid}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          }
+        )
           .then((response) => {
             return response.json();
           })
@@ -36,7 +39,7 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
           });
       }
 
-      fetch("http://localhost:3000/api/v1/transfers/transfers", {
+      fetch("https://digico-webtech.herokuapp.com/api/v1/transfers/transfers", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -82,7 +85,7 @@ username.addEventListener("keyup", () => {
       suggestions.style.display = "none";
     } else {
       fetch(
-        `http://localhost:3000/api/v1/users/search?term=${username.value}`,
+        `https://digico-webtech.herokuapp.com/api/v1/users/search?term=${username.value}`,
         {
           method: "GET",
           headers: {

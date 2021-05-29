@@ -1,4 +1,4 @@
-fetch("http://localhost:3000/auth/loggedin", {
+fetch("https://digico-webtech.herokuapp.com/auth/loggedin", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",

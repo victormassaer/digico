@@ -41,6 +41,25 @@ const getUserById = (req, res) => {
   });
 };
 
+const getUserByUsername = (req, res) => {
+  let username = req.params.username;
+  User.findOne({ username: username }).exec((err, doc) => {
+    if (err) {
+      res.json({
+        status: "error",
+        message: "Could not find user",
+      });
+    }
+    if (!err) {
+      res.json({
+        status: "succes",
+        message: "found user",
+        data: doc,
+      });
+    }
+  });
+};
+
 const autocomplete = (req, res) => {
   function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
@@ -66,4 +85,5 @@ const autocomplete = (req, res) => {
 
 module.exports.getLeaderboard = getLeaderboard;
 module.exports.getUserById = getUserById;
+module.exports.getUserByUsername = getUserByUsername;
 module.exports.autocomplete = autocomplete;

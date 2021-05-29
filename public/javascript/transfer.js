@@ -1,5 +1,6 @@
 //const primus = require("primus"); --> gives error
 const userid = localStorage.getItem("id");
+var receiverid;
 const suggestions = document.querySelector(".username--suggestions");
 const username = document.querySelector("#username");
 
@@ -14,58 +15,67 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
     const validation = validateInput(usernameValue, amount);
 
     if (validation !== true) {
-      showError(validation);
+      showMessage(validation, "error");
     } else {
-      if (!username.getAttribute("data-userid")) {
-        fetch(
-          `https://digico-webtech.herokuapp.com/api/v1/users/user/${userid}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-          }
-        )
-          .then((response) => {
-            return response.json();
-          })
-          .then((json) => {
-            console.log(json);
-            username.setAttribute("data-userid", "test");
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-      }
-
-      fetch("https://digico-webtech.herokuapp.com/api/v1/transfers/transfers", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-        body: JSON.stringify({
-          senderId: userid,
-          receiverId: username.getAttribute("data-userid"),
-          amount: amount,
-          reason: reason,
-          description: description,
-        }),
-      })
+      fetch(
+        `https://digico-webtech.herokuapp.com/api/v1/users/username/${usernameValue}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }
+      )
         .then((response) => {
           return response.json();
         })
         .then((json) => {
-          if (json.status === "succes") {
-            console.log("transaction complete");
-            document.querySelectorAll(".coins--amount").forEach((item) => {
-              item.innerHTML = `${coins - amount} coins`;
-              return coins;
-            });
-            // primus.write({
-            //   data: json,
-            // });
+          console.log(!json.data);
+          if (!json.data) {
+            showMessage("Fill in a valid username", "error");
+          } else {
+            receiverid = json.data._id;
+            fetch(
+              "https://digico-webtech.herokuapp.com/api/v1/transfers/transfers",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: "Bearer " + localStorage.getItem("token"),
+                },
+                body: JSON.stringify({
+                  senderId: userid,
+                  receiverId: receiverid,
+                  amount: amount,
+                  reason: reason,
+                  description: description,
+                }),
+              }
+            )
+              .then((response) => {
+                return response.json();
+              })
+              .then((json) => {
+                if (json.status === "succes") {
+                  console.log("transaction complete");
+                  document
+                    .querySelectorAll(".coins--amount")
+                    .forEach((item) => {
+                      item.innerHTML = `${coins - amount} coins`;
+                      showMessage(
+                        `Successfully sent ${amount}  coins to ${usernameValue}`,
+                        "success"
+                      );
+                    });
+                  // primus.write({
+                  //   data: json,
+                  // });
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+              });
           }
         })
         .catch((error) => {
@@ -108,7 +118,6 @@ username.addEventListener("keyup", () => {
                 let item = document.createElement("p");
                 item.classList.add("suggestion--user__true");
                 item.innerHTML = `<strong>${user.username}</strong>: ${user.firstName} ${user.lastName}`;
-                item.setAttribute("data-userid", user._id);
                 item.setAttribute("data-username", user.username);
                 suggestions.appendChild(item);
               }
@@ -119,8 +128,6 @@ username.addEventListener("keyup", () => {
                 user.addEventListener("click", (e) => {
                   console.log(e.target.innerHTML);
                   username.value = user.getAttribute("data-username");
-                  const userId = user.getAttribute("data-userid");
-                  username.setAttribute("data-userid", userId);
                   suggestions.innerHTML = "";
                   suggestions.style.display = "hidden";
                 });
@@ -155,7 +162,15 @@ const validateInput = (username, amount) => {
   }
 };
 
-const showError = (error) => {
+const showMessage = (message, error) => {
   document.querySelector(".messagebox").style.display = "block";
-  document.querySelector(".messagebox-error").innerHTML = error;
+  console.log(error);
+  if (error == "error") {
+    document.querySelector(".messagebox").style.backgroundColor =
+      "rgb(209, 101, 101)";
+  } else {
+    document.querySelector(".messagebox").style.backgroundColor =
+      "rgb(39, 185, 68)";
+  }
+  document.querySelector(".messagebox-message").innerHTML = message;
 };

@@ -261,7 +261,7 @@ body {
   margin-top: 2em;
   border-radius: 0.8em;
 }
-.messagebox .messagebox-error {
+.messagebox .messagebox-message {
   color: #f3f3f3;
 }
 

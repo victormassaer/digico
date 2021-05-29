@@ -20,41 +20,57 @@ const addTransfer = (req, res) => {
       }
       if (!err) {
         User.findById(req.body.senderId).exec((err, sender) => {
-          if (err) {
+          try {
+            if (err) {
+              res.json({
+                status: "error",
+                message: "Couldnot save this transfer",
+              });
+            }
+            if (!err) {
+              sender.coins = sender.coins - req.body.amount;
+              sender.save((err, result) => {
+                if (err) {
+                  res.json({
+                    status: "error",
+                    message: "Couldnot save this transfer",
+                  });
+                }
+              });
+            }
+          } catch (error) {
+            console.log(error);
             res.json({
               status: "error",
               message: "Couldnot save this transfer",
             });
           }
-          if (!err) {
-            sender.coins = sender.coins - req.body.amount;
-            sender.save((err, result) => {
-              if (err) {
-                res.json({
-                  status: "error",
-                  message: "Couldnot save this transfer",
-                });
-              }
-            });
-          }
         });
 
         User.findById(req.body.receiverId).exec((err, receiver) => {
-          if (err) {
+          try {
+            if (err) {
+              res.json({
+                status: "error",
+                message: "Couldnot save add this transfer",
+              });
+            }
+            if (!err) {
+              receiver.coins = receiver.coins + parseInt(req.body.amount);
+              receiver.save((err, result) => {
+                if (err) {
+                  res.json({
+                    status: "error",
+                    message: "Couldnot save add this transfer",
+                  });
+                }
+              });
+            }
+          } catch (error) {
+            console.error(error);
             res.json({
               status: "error",
               message: "Couldnot save add this transfer",
-            });
-          }
-          if (!err) {
-            receiver.coins = receiver.coins + parseInt(req.body.amount);
-            receiver.save((err, result) => {
-              if (err) {
-                res.json({
-                  status: "error",
-                  message: "Couldnot save add this transfer",
-                });
-              }
             });
           }
         });

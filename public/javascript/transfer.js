@@ -56,6 +56,10 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
         .then((json) => {
           if (json.status === "succes") {
             console.log("transaction complete");
+            document.querySelectorAll(".coins--amount").forEach((item) => {
+              item.innerHTML = `${coins - amount} coins`;
+              return coins;
+            });
             // primus.write({
             //   data: json,
             // });
@@ -149,6 +153,6 @@ const validateInput = (username, amount) => {
 };
 
 const showError = (error) => {
-  document.querySelector(".errorbox").style.display = "block";
-  document.querySelector(".errorbox-error").innerHTML = error;
+  document.querySelector(".messagebox").style.display = "block";
+  document.querySelector(".messagebox-error").innerHTML = error;
 };

@@ -35,6 +35,7 @@ const getUser = () => {
       return response.json();
     })
     .then((result) => {
+      console.log(result);
       if (result.status === "succes") {
         coins = result.data.coins;
         currentUser = result.data;

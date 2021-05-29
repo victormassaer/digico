@@ -251,7 +251,7 @@ body {
   font-weight: bold;
 }
 
-.errorbox {
+.messagebox {
   display: none;
   margin-left: 2em;
   margin-right: 2em;
@@ -260,7 +260,7 @@ body {
   margin-top: 2em;
   border-radius: 0.8em;
 }
-.errorbox .errorbox-error {
+.messagebox .messagebox-error {
   color: #f3f3f3;
 }
 

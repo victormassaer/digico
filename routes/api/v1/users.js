@@ -8,4 +8,6 @@ router.get("/leaderboard", usersController.getLeaderboard);
 
 router.get("/user/:id", usersController.getUserById);
 
+router.get("/search", usersController.autocomplete);
+
 module.exports = router;

@@ -1,3 +1,4 @@
+const { response } = require("express");
 const User = require("../../../models/User");
 const { get } = require("../../../routes/api/v1/users");
 
@@ -40,5 +41,29 @@ const getUserById = (req, res) => {
   });
 };
 
+const autocomplete = (req, res) => {
+  function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+  }
+  try {
+    let query = req.query.term;
+    const regex = new RegExp(escapeRegex(query), "gi");
+    let users = User.find({ username: regex }, (err, doc) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json({
+          status: "succes",
+          message: "found user",
+          data: doc,
+        });
+      }
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 module.exports.getLeaderboard = getLeaderboard;
 module.exports.getUserById = getUserById;
+module.exports.autocomplete = autocomplete;

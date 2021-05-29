@@ -297,14 +297,27 @@ body {
   display: flex;
   flex-direction: column;
   padding: 2em;
-}
 
-.form--transfer .input {
-  margin-bottom: 1em;
-}
+  .input {
+    margin-bottom: 1em;
+  }
 
-.form--transfer .btn {
-  border: none;
+  .btn {
+    border: none;
+  }
+
+  .username--suggestions {
+    background-color: $cloudgrey;
+    margin-top: -0.75rem;
+    margin-bottom: 1rem;
+    display: none;
+    padding-left: 1rem;
+    border-radius: $inputradius;
+
+    .suggestion--user__true {
+      cursor: pointer;
+    }
+  }
 }
 
 //style van leaderboard

@@ -276,13 +276,22 @@ body {
   flex-direction: column;
   padding: 2em;
 }
-
 .form--transfer .input {
   margin-bottom: 1em;
 }
-
 .form--transfer .btn {
   border: none;
+}
+.form--transfer .username--suggestions {
+  background-color: lightgray;
+  margin-top: -0.75rem;
+  margin-bottom: 1rem;
+  display: none;
+  padding-left: 1rem;
+  border-radius: 0.8em;
+}
+.form--transfer .username--suggestions .suggestion--user__true {
+  cursor: pointer;
 }
 
 .title__leaderboard {

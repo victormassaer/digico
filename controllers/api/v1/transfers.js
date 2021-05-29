@@ -76,7 +76,7 @@ const addTransfer = (req, res) => {
 
 const getAllTransfers = (req, res) => {
   Transfer.find({})
-    .sort({ date: "asc" })
+    .sort({ created: "desc" })
     .exec((err, doc) => {
       if (err) {
         res.json({

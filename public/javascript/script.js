@@ -21,29 +21,35 @@ document.querySelector(".nav a").addEventListener("click", (e) => {
 
 //get current user and set balance
 const id = localStorage.getItem("id");
-fetch(`http://localhost:3000/api/v1/users/user/${id}`, {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: "Bearer " + localStorage.getItem("token"),
-  },
-})
-  .then((response) => {
-    return response.json();
+var user;
+var coins;
+const getUser = () => {
+  fetch(`http://localhost:3000/api/v1/users/user/${id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
   })
-  .then((result) => {
-    console.log(result);
-    if (result.status === "succes") {
-      console.log("test");
-      coins = result.data.coins;
-      document.querySelectorAll(".coins--amount").forEach((item) => {
-        item.innerHTML = `${coins} coins`;
-      });
-      return coins;
-    } else {
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      if (result.status === "succes") {
+        coins = result.data.coins;
+        currentUser = result.data;
+        document.querySelectorAll(".coins--amount").forEach((item) => {
+          item.innerHTML = `${coins} coins`;
+          return coins;
+        });
+      } else {
+        console.log("request failed");
+        return "error";
+      }
+    })
+    .catch((error) => {
       console.log("request failed");
-    }
-  })
-  .catch((error) => {
-    console.log("request failed");
-  });
+    });
+};
+
+getUser();

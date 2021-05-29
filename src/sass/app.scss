@@ -273,6 +273,21 @@ body {
 
 //style van de transfer page
 
+.errorbox {
+  display: none;
+  margin-left: 2em;
+  margin-right: 2em;
+  background-color: rgb(209, 101, 101);
+
+  padding: 1em 2em;
+  margin-top: 2em;
+  border-radius: $inputradius;
+
+  .errorbox-error {
+    color: $almostgrey;
+  }
+}
+
 .header--transfer {
   background-color: $almostgrey;
   display: flex;

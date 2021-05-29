@@ -251,6 +251,19 @@ body {
   font-weight: bold;
 }
 
+.errorbox {
+  display: none;
+  margin-left: 2em;
+  margin-right: 2em;
+  background-color: #d16565;
+  padding: 1em 2em;
+  margin-top: 2em;
+  border-radius: 0.8em;
+}
+.errorbox .errorbox-error {
+  color: #f3f3f3;
+}
+
 .header--transfer {
   background-color: #f3f3f3;
   display: flex;

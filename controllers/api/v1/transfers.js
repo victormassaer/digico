@@ -27,21 +27,23 @@ const addTransfer = (req, res) => {
 };
 
 const getAllTransfers = (req, res) => {
-  Transfer.find({}, (err, doc) => {
-    if (err) {
-      res.json({
-        status: "error",
-        message: "Couldnot get transfers",
-      });
-    }
-    if (!err) {
-      res.json({
-        status: "succes",
-        message: "got all transfers",
-        data: doc,
-      });
-    }
-  });
+  Transfer.find({})
+    .sort({ date: "asc" })
+    .exec((err, doc) => {
+      if (err) {
+        res.json({
+          status: "error",
+          message: "Couldnot get transfers",
+        });
+      }
+      if (!err) {
+        res.json({
+          status: "succes",
+          message: "got all transfers",
+          data: doc,
+        });
+      }
+    });
 };
 
 const getTransferById = (req, res) => {

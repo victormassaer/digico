@@ -5,7 +5,7 @@ document.querySelector("#btnSignup").addEventListener("click", (e) => {
   let username = document.querySelector("#username").value;
   let email = document.querySelector("#email").value;
   let password = document.querySelector("#password").value;
-  fetch(`http://localhost:3000/auth/signup`, {
+  fetch(`https://digico-webtech.herokuapp.com/signup.html`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

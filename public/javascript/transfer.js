@@ -6,7 +6,7 @@ document.querySelector("#btn--transfer").addEventListener("click", ()=>{
     let reason = document.querySelector("#reason").value;
     let description = document.querySelector("#description").value;
 
-    fetch('http://localhost:3000/api/v1/transfers/transfers', {
+    fetch('https://digico-webtech.herokuapp.com/transfer', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -33,3 +33,4 @@ document.querySelector("#btn--transfer").addEventListener("click", ()=>{
             console.error('Error:', error);
         });
 });
+

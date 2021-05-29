@@ -21,7 +21,7 @@ document.querySelector(".nav a").addEventListener("click", (e) => {
 
 //get current user and set balance
 const id = localStorage.getItem("id");
-fetch(`http://localhost:3000/api/v1/users/user/${id}`, {
+fetch(`https://digico-webtech.herokuapp.com/api/v1/users/user/${id}`, {
   method: "GET",
   headers: {
     "Content-Type": "application/json",

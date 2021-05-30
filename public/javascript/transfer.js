@@ -2,6 +2,7 @@ const userid = localStorage.getItem("id");
 var receiverid;
 const suggestions = document.querySelector(".username--suggestions");
 const username = document.querySelector("#username");
+const ownUsername = user.username;
 
 //primus connection
 let primus = Primus.connect("/", {
@@ -74,7 +75,7 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
                     "success"
                   );
                   primus.write({
-                    username: user.username,
+                    username: ownUsername,
                     coins: amount,
                     reason: reason,
                     description: description,

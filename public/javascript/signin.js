@@ -24,7 +24,7 @@ document.querySelector("#btnSignin").addEventListener("click", (e) => {
         localStorage.setItem("id", id);
         window.location.href = "../feed.html";
       } else {
-        showMessage("password or username is incorrect" + "error");
+        showMessage("password or username is incorrect", "error");
       }
     })
     .catch((error) => {

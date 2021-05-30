@@ -24,10 +24,23 @@ document.querySelector("#btnSignin").addEventListener("click", (e) => {
         localStorage.setItem("id", id);
         window.location.href = "../feed.html";
       } else {
-        console.log("login failed");
+        showMessage("password or username is incorrect" + "error");
       }
     })
     .catch((error) => {
       console.error("Error:", error);
     });
 });
+
+const showMessage = (message, error) => {
+  document.querySelector(".messagebox").style.display = "block";
+  console.log(error);
+  if (error == "error") {
+    document.querySelector(".messagebox").style.backgroundColor =
+      "rgb(209, 101, 101)";
+  } else {
+    document.querySelector(".messagebox").style.backgroundColor =
+      "rgb(39, 185, 68)";
+  }
+  document.querySelector(".messagebox-message").innerHTML = message;
+};

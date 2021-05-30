@@ -19,7 +19,7 @@ try {
   console.error(error);
 }
 
-fetch("http://localhost:3000/api/v1/transfers/transfers", {
+fetch("https://digico-webtech.herokuapp.com/api/v1/transfers/transfers", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -49,13 +49,16 @@ fetch("http://localhost:3000/api/v1/transfers/transfers", {
             var image = "./images/profit.svg";
           }
 
-          fetch(`http://localhost:3000/api/v1/users/user/${id}`, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-          })
+          fetch(
+            `https://digico-webtech.herokuapp.com/api/v1/users/user/${id}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + localStorage.getItem("token"),
+              },
+            }
+          )
             .then((response) => {
               return response.json();
             })

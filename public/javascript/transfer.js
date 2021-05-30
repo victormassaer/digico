@@ -25,13 +25,16 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
     if (validation !== true) {
       showMessage(validation, "error");
     } else {
-      fetch(`http://localhost:3000/api/v1/users/username/${usernameValue}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      })
+      fetch(
+        `https://digico-webtech.herokuapp.com/api/v1/users/username/${usernameValue}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }
+      )
         .then((response) => {
           return response.json();
         })
@@ -41,21 +44,24 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
             showMessage("Fill in a valid username", "error");
           } else {
             receiverid = json.data._id;
-            fetch("http://localhost:3000/api/v1/transfers/transfers", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: "Bearer " + localStorage.getItem("token"),
-                Id: localStorage.getItem("id"),
-              },
-              body: JSON.stringify({
-                senderId: userid,
-                receiverId: receiverid,
-                amount: amount,
-                reason: reason,
-                description: description,
-              }),
-            })
+            fetch(
+              "https://digico-webtech.herokuapp.com/api/v1/transfers/transfers",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: "Bearer " + localStorage.getItem("token"),
+                  Id: localStorage.getItem("id"),
+                },
+                body: JSON.stringify({
+                  senderId: userid,
+                  receiverId: receiverid,
+                  amount: amount,
+                  reason: reason,
+                  description: description,
+                }),
+              }
+            )
               .then((response) => {
                 return response.json();
               })
@@ -67,13 +73,17 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
                     `Successfully sent ${amount}  coins to ${usernameValue}`,
                     "success"
                   );
-                  fetch(`http://localhost:3000/api/v1/users/user/${userid}`, {
-                    method: "GET",
-                    headers: {
-                      "Content-Type": "application/json",
-                      Authorization: "Bearer " + localStorage.getItem("token"),
-                    },
-                  })
+                  fetch(
+                    `https://digico-webtech.herokuapp.com/api/v1/users/user/${userid}`,
+                    {
+                      method: "GET",
+                      headers: {
+                        "Content-Type": "application/json",
+                        Authorization:
+                          "Bearer " + localStorage.getItem("token"),
+                      },
+                    }
+                  )
                     .then((response) => {
                       return response.json();
                     })
@@ -124,7 +134,7 @@ username.addEventListener("keyup", () => {
       suggestions.style.display = "none";
     } else {
       fetch(
-        `http://localhost:3000/api/v1/users/search?term=${username.value}`,
+        `https://digico-webtech.herokuapp.com/api/v1/users/search?term=${username.value}`,
         {
           method: "GET",
           headers: {

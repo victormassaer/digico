@@ -1,4 +1,4 @@
-fetch("https://digico-webtech.herokuapp.com/api/v1/transfers/transfers", {
+fetch("http://localhost:3000/api/v1/transfers/transfers", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -24,7 +24,7 @@ fetch("https://digico-webtech.herokuapp.com/api/v1/transfers/transfers", {
           var image = "./images/profit.svg";
         }
 
-        fetch(`https://digico-webtech.herokuapp.com/api/v1/users/user/${id}`, {
+        fetch(`http://localhost:3000/api/v1/users/user/${id}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

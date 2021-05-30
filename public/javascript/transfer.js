@@ -2,16 +2,15 @@ const userid = localStorage.getItem("id");
 var receiverid;
 const suggestions = document.querySelector(".username--suggestions");
 const username = document.querySelector("#username");
-const ownUsername = user.username;
 
 //primus connection
-let primus = Primus.connect("/", {
-  reconnect: {
-    max: Infinity, // Number: The max delay before we try to reconnect.
-    min: 500, // Number: The minimum delay before we try reconnect.
-    retries: 10, // Number: How many times we should try to reconnect.
-  },
-});
+// let primus = Primus.connect("/", {
+//   reconnect: {
+//     max: Infinity, // Number: The max delay before we try to reconnect.
+//     min: 500, // Number: The minimum delay before we try reconnect.
+//     retries: 10, // Number: How many times we should try to reconnect.
+//   },
+// });
 
 //SEND TRANSFER!!
 document.querySelector("#btn--transfer").addEventListener("click", (e) => {
@@ -26,16 +25,13 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
     if (validation !== true) {
       showMessage(validation, "error");
     } else {
-      fetch(
-        `https://digico-webtech.herokuapp.com/api/v1/users/username/${usernameValue}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        }
-      )
+      fetch(`http://localhost:3000/api/v1/users/username/${usernameValue}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
         .then((response) => {
           return response.json();
         })
@@ -45,24 +41,21 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
             showMessage("Fill in a valid username", "error");
           } else {
             receiverid = json.data._id;
-            fetch(
-              "https://digico-webtech.herokuapp.com/api/v1/transfers/transfers",
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  Authorization: "Bearer " + localStorage.getItem("token"),
-                  Id: localStorage.getItem("id"),
-                },
-                body: JSON.stringify({
-                  senderId: userid,
-                  receiverId: receiverid,
-                  amount: amount,
-                  reason: reason,
-                  description: description,
-                }),
-              }
-            )
+            fetch("http://localhost:3000/api/v1/transfers/transfers", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + localStorage.getItem("token"),
+                Id: localStorage.getItem("id"),
+              },
+              body: JSON.stringify({
+                senderId: userid,
+                receiverId: receiverid,
+                amount: amount,
+                reason: reason,
+                description: description,
+              }),
+            })
               .then((response) => {
                 return response.json();
               })
@@ -74,13 +67,34 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
                     `Successfully sent ${amount}  coins to ${usernameValue}`,
                     "success"
                   );
-                  primus.write({
-                    username: ownUsername,
-                    coins: amount,
-                    reason: reason,
-                    description: description,
-                    receiverId: receiverid,
-                  });
+                  fetch(`http://localhost:3000/api/v1/users/user/${userid}`, {
+                    method: "GET",
+                    headers: {
+                      "Content-Type": "application/json",
+                      Authorization: "Bearer " + localStorage.getItem("token"),
+                    },
+                  })
+                    .then((response) => {
+                      return response.json();
+                    })
+                    .then((result) => {
+                      console.log(result);
+                      if (result.status === "succes") {
+                        primus.write({
+                          username: result.data.username,
+                          coins: amount,
+                          reason: reason,
+                          description: description,
+                          receiverId: receiverid,
+                        });
+                      } else {
+                        console.log("request failed");
+                        return "error";
+                      }
+                    })
+                    .catch((error) => {
+                      console.log("request failed");
+                    });
                 } else {
                   showMessage(
                     `Something went wrong, please make sure you filled in valid information`,
@@ -110,7 +124,7 @@ username.addEventListener("keyup", () => {
       suggestions.style.display = "none";
     } else {
       fetch(
-        `https://digico-webtech.herokuapp.com/api/v1/users/search?term=${username.value}`,
+        `http://localhost:3000/api/v1/users/search?term=${username.value}`,
         {
           method: "GET",
           headers: {

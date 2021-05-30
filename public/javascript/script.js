@@ -24,7 +24,7 @@ const id = localStorage.getItem("id");
 var user;
 var coins;
 const getUser = () => {
-  fetch(`https://digico-webtech.herokuapp.com/api/v1/users/user/${id}`, {
+  fetch(`http://localhost:3000/api/v1/users/user/${id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -55,7 +55,7 @@ const getUser = () => {
 
 getUser();
 
-document.querySelector("#logout").addEventListener("click", ()=>{
+document.querySelector("#logout").addEventListener("click", () => {
   localStorage.clear();
   window.location.href = "login";
 });

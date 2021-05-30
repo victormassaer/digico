@@ -12,6 +12,7 @@ try {
       createItem(data);
       console.log(data);
       console.log("data ontvangen");
+      getUser();
     }
   });
 } catch (error) {

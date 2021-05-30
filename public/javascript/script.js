@@ -24,7 +24,7 @@ const id = localStorage.getItem("id");
 var user;
 var coins;
 const getUser = () => {
-  fetch(`http://localhost:3000/api/v1/users/user/${id}`, {
+  fetch(`https://digico-webtech.herokuapp.com/api/v1/users/user/${id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

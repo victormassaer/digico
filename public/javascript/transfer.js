@@ -59,15 +59,11 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
               .then((json) => {
                 if (json.status === "succes") {
                   console.log("transaction complete");
-                  document
-                    .querySelectorAll(".coins--amount")
-                    .forEach((item) => {
-                      item.innerHTML = `${coins - amount} coins`;
-                      showMessage(
-                        `Successfully sent ${amount}  coins to ${usernameValue}`,
-                        "success"
-                      );
-                    });
+                  getUser();
+                  showMessage(
+                    `Successfully sent ${amount}  coins to ${usernameValue}`,
+                    "success"
+                  );
                   // primus.write({
                   //   data: json,
                   // });
@@ -153,10 +149,12 @@ const validateInput = (username, amount) => {
     return "Username may not be empty";
   } else if (username === currentUser.username) {
     return "You cant send coins to yourself";
-  } else if (!amount || isNaN(amount)) {
+  } else if (!amount || isNaN(amount) || amount === 0) {
     return "Fill in a valid amount of coins";
   } else if (coins < amount) {
     return "You do not have enough coins";
+  } else if (amount < 0) {
+    return "Nice try, but we thought of this bug :)";
   } else {
     return true;
   }

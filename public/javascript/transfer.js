@@ -74,7 +74,7 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
                     "success"
                   );
                   primus.write({
-                    username: usernameValue,
+                    username: user.username,
                     coins: amount,
                     reason: reason,
                     description: description,

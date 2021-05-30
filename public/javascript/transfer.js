@@ -3,14 +3,14 @@ var receiverid;
 const suggestions = document.querySelector(".username--suggestions");
 const username = document.querySelector("#username");
 
-//primus connection
-// let primus = Primus.connect("/", {
-//   reconnect: {
-//     max: Infinity, // Number: The max delay before we try to reconnect.
-//     min: 500, // Number: The minimum delay before we try reconnect.
-//     retries: 10, // Number: How many times we should try to reconnect.
-//   },
-// });
+// primus connection
+let primus = Primus.connect("/", {
+  reconnect: {
+    max: Infinity, // Number: The max delay before we try to reconnect.
+    min: 500, // Number: The minimum delay before we try reconnect.
+    retries: 10, // Number: How many times we should try to reconnect.
+  },
+});
 
 //SEND TRANSFER!!
 document.querySelector("#btn--transfer").addEventListener("click", (e) => {

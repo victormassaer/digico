@@ -1,4 +1,4 @@
-fetch("https://digico-webtech.herokuapp.com/api/v1/users/leaderboard", {
+fetch("http://localhost:3000/api/v1/users/leaderboard", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",

@@ -1,8 +1,16 @@
-//const primus = require("primus"); --> gives error
 const userid = localStorage.getItem("id");
 var receiverid;
 const suggestions = document.querySelector(".username--suggestions");
 const username = document.querySelector("#username");
+
+//primus connection
+let primus = Primus.connect("/", {
+  reconnect: {
+    max: Infinity, // Number: The max delay before we try to reconnect.
+    min: 500, // Number: The minimum delay before we try reconnect.
+    retries: 10, // Number: How many times we should try to reconnect.
+  },
+});
 
 //SEND TRANSFER!!
 document.querySelector("#btn--transfer").addEventListener("click", (e) => {
@@ -18,7 +26,7 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
       showMessage(validation, "error");
     } else {
       fetch(
-        `https://digico-webtech.herokuapp.com/api/v1/users/username/${usernameValue}`,
+        `http://localhost:3000/api/v1/users/username/${usernameValue}`,
         {
           method: "GET",
           headers: {
@@ -37,7 +45,7 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
           } else {
             receiverid = json.data._id;
             fetch(
-              "https://digico-webtech.herokuapp.com/api/v1/transfers/transfers",
+              "http://localhost:3000/api/v1/transfers/transfers",
               {
                 method: "POST",
                 headers: {
@@ -64,9 +72,13 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
                     `Successfully sent ${amount}  coins to ${usernameValue}`,
                     "success"
                   );
-                  // primus.write({
-                  //   data: json,
-                  // });
+                  primus.write({
+                    username : usernameValue,
+                    coins : amount,
+                    reason : reason,
+                    description : description,
+                    receiverId : receiverid
+                  });
                 }
               })
               .catch((error) => {
@@ -91,7 +103,7 @@ username.addEventListener("keyup", () => {
       suggestions.style.display = "none";
     } else {
       fetch(
-        `https://digico-webtech.herokuapp.com/api/v1/users/search?term=${username.value}`,
+        `http://localhost:3000/api/v1/users/search?term=${username.value}`,
         {
           method: "GET",
           headers: {

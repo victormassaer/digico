@@ -1,4 +1,4 @@
-fetch("https://digico-webtech.herokuapp.com/api/v1/transfers/transfers", {
+fetch("http://localhost:3000/api/v1/transfers/transfers", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -24,7 +24,7 @@ fetch("https://digico-webtech.herokuapp.com/api/v1/transfers/transfers", {
           var image = "./images/profit.svg";
         }
 
-        fetch(`https://digico-webtech.herokuapp.com/api/v1/users/user/${id}`, {
+        fetch(`http://localhost:3000/api/v1/users/user/${id}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -69,3 +69,40 @@ fetch("https://digico-webtech.herokuapp.com/api/v1/transfers/transfers", {
   .catch((error) => {
     console.error("Error:", error);
   });
+
+//primus code ws
+
+primus = Primus.connect("/history", {
+  reconnect: {
+    max: Infinity,
+    min: 500,
+    retries: 10,
+  },
+});
+
+primus.on("data", (data) => {
+    if(data.receiverId === localStorage.getItem("id")){
+      createItem(data)
+      console.log(data);
+      console.log("data ontvangen");
+    }
+});
+
+const createItem = (json)=>{
+  const transactions = document.querySelector(".transactions");
+  let transaction = document.createElement("div");
+  transaction.classList.add("transaction");
+  item = `
+    <img class="transaction--image" src='./images/profit.svg' alt="upload" />
+    <p class="user">
+    <span class="name">${json.username}</span> -
+    <span class="subject">${json.reason}</span>
+    </p>
+    <p class="description">
+    ${json.description}
+    </p>
+    <h3 class="amount"> + ${json.coins}</h3>
+    `;
+  transaction.innerHTML = item;
+  transactions.prepend(transaction);
+}

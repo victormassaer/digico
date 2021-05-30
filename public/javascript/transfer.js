@@ -26,7 +26,7 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
       showMessage(validation, "error");
     } else {
       fetch(
-        `http://localhost:3000/api/v1/users/username/${usernameValue}`,
+        `https://digico-webtech.herokuapp.com/api/v1/users/username/${usernameValue}`,
         {
           method: "GET",
           headers: {
@@ -45,12 +45,13 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
           } else {
             receiverid = json.data._id;
             fetch(
-              "http://localhost:3000/api/v1/transfers/transfers",
+              "https://digico-webtech.herokuapp.com/api/v1/transfers/transfers",
               {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
                   Authorization: "Bearer " + localStorage.getItem("token"),
+                  Id: localStorage.getItem("id"),
                 },
                 body: JSON.stringify({
                   senderId: userid,
@@ -73,12 +74,17 @@ document.querySelector("#btn--transfer").addEventListener("click", (e) => {
                     "success"
                   );
                   primus.write({
-                    username : usernameValue,
-                    coins : amount,
-                    reason : reason,
-                    description : description,
-                    receiverId : receiverid
+                    username: usernameValue,
+                    coins: amount,
+                    reason: reason,
+                    description: description,
+                    receiverId: receiverid,
                   });
+                } else {
+                  showMessage(
+                    `Something went wrong, please make sure you filled in valid information`,
+                    "error"
+                  );
                 }
               })
               .catch((error) => {
@@ -103,7 +109,7 @@ username.addEventListener("keyup", () => {
       suggestions.style.display = "none";
     } else {
       fetch(
-        `http://localhost:3000/api/v1/users/search?term=${username.value}`,
+        `https://digico-webtech.herokuapp.com/api/v1/users/search?term=${username.value}`,
         {
           method: "GET",
           headers: {

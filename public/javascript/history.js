@@ -1,8 +1,9 @@
-fetch("http://localhost:3000/api/v1/transfers/transfers", {
+fetch("https://digico-webtech.herokuapp.com/api/v1/transfers/transfers", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
     Authorization: "Bearer " + localStorage.getItem("token"),
+    Id: localStorage.getItem("id"),
   },
 })
   .then((response) => {
@@ -13,7 +14,6 @@ fetch("http://localhost:3000/api/v1/transfers/transfers", {
       const transfers = result["data"];
       transfers.forEach((transfer) => {
         let userId = localStorage.getItem("id");
-
         if (transfer["senderId"] === userId) {
           var id = transfer["receiverId"];
           var type = "-";
@@ -24,7 +24,7 @@ fetch("http://localhost:3000/api/v1/transfers/transfers", {
           var image = "./images/profit.svg";
         }
 
-        fetch(`http://localhost:3000/api/v1/users/user/${id}`, {
+        fetch(`https://digico-webtech.herokuapp.com/api/v1/users/user/${id}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -36,7 +36,6 @@ fetch("http://localhost:3000/api/v1/transfers/transfers", {
           })
           .then((result) => {
             if (result.status === "succes") {
-              console.log(result);
               const user = result["data"];
               const transactions = document.querySelector(".transactions");
               let transaction = document.createElement("div");
@@ -70,25 +69,29 @@ fetch("http://localhost:3000/api/v1/transfers/transfers", {
     console.error("Error:", error);
   });
 
-//primus code ws
+try {
+  //primus code ws
+  primus = Primus.connect("/history", {
+    reconnect: {
+      max: Infinity,
+      min: 500,
+      retries: 10,
+    },
+  });
 
-primus = Primus.connect("/history", {
-  reconnect: {
-    max: Infinity,
-    min: 500,
-    retries: 10,
-  },
-});
-
-primus.on("data", (data) => {
-    if(data.receiverId === localStorage.getItem("id")){
-      createItem(data)
+  primus.on("data", (data) => {
+    if (data.receiverId === localStorage.getItem("id")) {
+      createItem(data);
       console.log(data);
       console.log("data ontvangen");
+      getUser();
     }
-});
+  });
+} catch (error) {
+  console.error(error);
+}
 
-const createItem = (json)=>{
+const createItem = (json) => {
   const transactions = document.querySelector(".transactions");
   let transaction = document.createElement("div");
   transaction.classList.add("transaction");
@@ -105,4 +108,4 @@ const createItem = (json)=>{
     `;
   transaction.innerHTML = item;
   transactions.prepend(transaction);
-}
+};
